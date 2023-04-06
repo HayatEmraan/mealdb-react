@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Meal = () => {
   const data = useLoaderData();
@@ -18,8 +18,11 @@ const Meal = () => {
               </h2>
               <p className="text-lg">
                 {d.strInstructions.length >= 150
-                  ? d.strInstructions.slice(0, 93) + " " + "more..."
+                  ? d.strInstructions.slice(0, 93) + " "
                   : d.strInstructions}
+                <Link to={d.idMeal}>
+                  <button>more...</button>
+                </Link>
               </p>
             </div>
           );
